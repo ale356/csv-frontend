@@ -6,7 +6,7 @@
       accept=".csv"
       required
     />
-    <button type="button" (click)="onFileSelected($event)">Upload CSV</button>
+    <button type="button" (click)="uploadUsers()">Upload CSV</button>
   </form>
 </div>
 
@@ -52,9 +52,7 @@
         <td>{{ entry.user.password }}</td>
         <td>
           <ul>
-            <li *ngIf="!entry.validationResults.FullName">
-              Full Name: Invalid
-            </li>
+            <li *ngIf="!entry.validationResults.FullName">Full Name: Invalid</li>
             <li *ngIf="!entry.validationResults.Username">Username: Invalid</li>
             <li *ngIf="!entry.validationResults.Email">Email: Invalid</li>
             <li *ngIf="!entry.validationResults.Password">Password: Invalid</li>

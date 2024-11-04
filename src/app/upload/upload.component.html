@@ -1,69 +1,40 @@
 <div>
   <h1>Upload A CSV File</h1>
   <form enctype="multipart/form-data">
-    <input
-      type="file"
-      (change)="onFileSelected($event)"
-      accept=".csv"
-      required
-    />
-    <button type="button" (click)="uploadUsers()">Upload CSV</button>
+    <input type="file" (change)="onFileSelected($event)" accept=".csv" required />
+    <button type="button" (click)="parseCSVAndValidate()">Validate CSV</button>
+    <button type="button" (click)="uploadUsers()" [disabled]="users.length === 0">Upload CSV</button>
   </form>
 </div>
 
 <div *ngIf="users.length > 0 || invalidEntries.length > 0">
-  <h2>Valid Users</h2>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Full Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Password</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.id }}</td>
-          <td>{{ user.fullName }}</td>
-          <td>{{ user.username }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.password }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h2>Users</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Iterate over valid users -->
+      <tr *ngFor="let user of users">
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+      </tr>
 
-  <h2>Invalid Entries</h2>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Password</th>
-          <th>Validation Results</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let entry of invalidEntries">
-          <td>{{ entry.user.fullName }}</td>
-          <td>{{ entry.user.username }}</td>
-          <td>{{ entry.user.email }}</td>
-          <td>{{ entry.user.password }}</td>
-          <td>
-            <ul>
-              <li *ngIf="!entry.validationResults.FullName">Full Name: Invalid</li>
-              <li *ngIf="!entry.validationResults.Username">Username: Invalid</li>
-              <li *ngIf="!entry.validationResults.Email">Email: Invalid</li>
-              <li *ngIf="!entry.validationResults.Password">Password: Invalid</li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <!-- Iterate over invalid users -->
+      <tr *ngFor="let invalidEntry of invalidEntries">
+        <td [ngClass]="{ 'invalid-cell': !invalidEntry.validationResults.FullName }">{{ invalidEntry.user.fullName }}</td>
+        <td [ngClass]="{ 'invalid-cell': !invalidEntry.validationResults.Username }">{{ invalidEntry.user.username }}</td>
+        <td [ngClass]="{ 'invalid-cell': !invalidEntry.validationResults.Email }">{{ invalidEntry.user.email }}</td>
+        <td [ngClass]="{ 'invalid-cell': !invalidEntry.validationResults.Password }">{{ invalidEntry.user.password }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+

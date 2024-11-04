@@ -113,3 +113,9 @@ tr:hover {
     padding: 8px;
   }
 }
+
+.invalid-cell {
+  background-color: red; /* Change to any color you prefer */
+  color: white;          /* Optional: Change text color for better contrast */
+}
+

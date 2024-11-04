@@ -52,26 +52,26 @@ export class UploadComponent {
       console.error("No file selected for upload.");
       return; // Prevent upload if no file is selected
     }
-
+  
     if (this.selectedFile.type !== "text/csv") {
       console.error("Selected file is not a CSV.");
       return; // Validate if the file is a CSV
     }
-
-    Papa.parse(this.selectedFile, {
-      header: true,
-      complete: (results) => {
-        this.http.post(this.apiUrl, { users: results.data }).subscribe(
-          (response: any) => {
-            this.users = response.savedUsers;
-            this.invalidEntries = response.invalidEntries;
-          },
-          (error: any) => {
-            console.error("Error uploading users:", error);
-          }
-        );
+  
+    const formData = new FormData();
+    formData.append('file', this.selectedFile); // Add the file to the form data with the key 'file'
+  
+    this.http.post(this.apiUrl, formData).subscribe(
+      (response: any) => {
+        this.users = response.savedUsers;
+        this.invalidEntries = response.invalidEntries;
       },
-    });
-    console.log('file uploaded')
+      (error: any) => {
+        console.error("Error uploading users:", error);
+      }
+    );
+  
+    console.log('File uploaded');
   }
+  
 }

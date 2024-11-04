@@ -119,3 +119,12 @@ tr:hover {
   color: white;          /* Optional: Change text color for better contrast */
 }
 
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}

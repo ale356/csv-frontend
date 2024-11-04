@@ -35,6 +35,8 @@ export class UploadComponent {
   invalidEntries: ValidationResult[] = [];
   selectedFile: File | null = null;
   apiUrl: string = environment.apiUrl;
+  uploadStatusMessage: string = ''; // Message to show upload status
+  isUploadSuccessful: boolean = false; // To track if the upload was successful
 
   constructor(private http: HttpClient, private fb: FormBuilder) {}
 
@@ -68,7 +70,6 @@ export class UploadComponent {
             email: userData.Email,
             password: userData.Password,
           };
-          console.log(user)
 
           const validationResult = this.validateUser(user);
           if (validationResult) {
@@ -141,9 +142,13 @@ export class UploadComponent {
       (response: any) => {
         this.users = response.savedUsers;
         this.invalidEntries = response.invalidEntries;
+        this.uploadStatusMessage = "Users uploaded successfully!"; // Success message
+        this.isUploadSuccessful = true; // Set success status
       },
       (error: any) => {
         console.error("Error uploading users:", error);
+        this.uploadStatusMessage = "Failed to upload users."; // Error message
+        this.isUploadSuccessful = false; // Set failure status
       }
     );
   }

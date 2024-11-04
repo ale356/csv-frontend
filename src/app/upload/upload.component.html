@@ -5,6 +5,11 @@
     <button type="button" (click)="parseCSVAndValidate()">Upload CSV</button>
     <button type="button" (click)="uploadUsers()" [disabled]="users.length === 0">Save Data To Database</button>
   </form>
+
+  <!-- Display upload status message -->
+  <div *ngIf="uploadStatusMessage" [ngClass]="{ 'success-message': isUploadSuccessful, 'error-message': !isUploadSuccessful }">
+    {{ uploadStatusMessage }}
+  </div>
 </div>
 
 <div *ngIf="users.length > 0 || invalidEntries.length > 0">
@@ -37,4 +42,3 @@
     </tbody>
   </table>
 </div>
-

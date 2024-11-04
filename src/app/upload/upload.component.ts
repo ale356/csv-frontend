@@ -142,7 +142,7 @@ export class UploadComponent {
       (response: any) => {
         this.users = response.savedUsers;
         this.invalidEntries = response.invalidEntries;
-        this.uploadStatusMessage = "Users uploaded successfully!"; // Success message
+        this.uploadStatusMessage = "Valid users uploaded successfully!"; // Success message
         this.isUploadSuccessful = true; // Set success status
       },
       (error: any) => {

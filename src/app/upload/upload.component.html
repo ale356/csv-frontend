@@ -2,8 +2,8 @@
   <h1>Upload A CSV File</h1>
   <form enctype="multipart/form-data">
     <input type="file" (change)="onFileSelected($event)" accept=".csv" required />
-    <button type="button" (click)="parseCSVAndValidate()">Validate CSV</button>
-    <button type="button" (click)="uploadUsers()" [disabled]="users.length === 0">Upload CSV</button>
+    <button type="button" (click)="parseCSVAndValidate()">Upload CSV</button>
+    <button type="button" (click)="uploadUsers()" [disabled]="users.length === 0">Save Data To Database</button>
   </form>
 </div>
 

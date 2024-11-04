@@ -19,7 +19,7 @@ div {
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between elements */
+  gap: 10px;
 }
 
 input[type="file"] {
@@ -30,7 +30,7 @@ input[type="file"] {
 }
 
 button {
-  background-color: #28a745; /* Green button */
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
@@ -41,28 +41,15 @@ button {
 }
 
 button:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838;
 }
 
 /* Table Styles */
 h1 {
-  font-size: 2.5rem; /* Default font size */
-  text-align: center; /* Center align the heading */
-  color: #333; /* Text color */
-  margin: 20px 0; /* Top and bottom margin */
-}
-
-/* Responsive Styles for h1 */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem; /* Slightly smaller on small screens */
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem; /* Even smaller on very small screens */
-  }
+  font-size: 2.5rem;
+  text-align: center;
+  color: #333;
+  margin: 20px 0;
 }
 
 h2 {
@@ -89,21 +76,40 @@ th {
 }
 
 tr:hover {
-  background-color: #f5f5f5; /* Light grey on hover */
+  background-color: #f5f5f5;
 }
 
-/* Responsive Styles */
+/* Responsive Table Container */
+.table-container {
+  overflow-x: auto;
+}
+
 @media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
   form {
-    flex-direction: column; /* Stack elements on small screens */
+    flex-direction: column;
   }
 
   input[type="file"],
   button {
-    width: 100%; /* Full width on small screens */
+    width: 100%;
   }
 
   table {
-    font-size: 14px; /* Slightly smaller text on small screens */
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  th,
+  td {
+    padding: 8px;
   }
 }

@@ -3,7 +3,7 @@
   <form enctype="multipart/form-data">
     <input type="file" (change)="onFileSelected($event)" accept=".csv" required />
     <button type="button" (click)="parseCSVAndValidate()">Upload CSV</button>
-    <button type="button" (click)="uploadUsers()" [disabled]="users.length === 0">Save Data To Database</button>
+    <button type="button" (click)="uploadUsers()" [disabled]="users.length === 0">Save Valid Data To Database</button>
   </form>
 
   <!-- Display upload status message -->

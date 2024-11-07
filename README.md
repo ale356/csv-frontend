@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project is a full-stack web application designed to upload CSV files containing user data and store them in a PostgreSQL database via a REST API built using .NET (C#). The application was developed with a frontend using Angular (TypeScript) and implements form validation for user fields. Invalid fields are clearly displayed in a table for easy user identification. Additionally, the project includes automated unit tests for both the frontend (using Jasmine) and the backend (using xUnit) to ensure functionality and stability. 
+This repository contains the **frontend** of a full-stack web application designed to upload CSV files containing user data and store them in a PostgreSQL database via a REST API built using .NET (C#). The frontend is developed using Angular (TypeScript) and implements form validation for user fields. Invalid fields are clearly displayed in a table for easy user identification. Additionally, the project includes automated unit tests for the frontend (using Jasmine), ensuring functionality and stability.
 
 ### Key Features 🛠️
 - Upload CSV files containing user data 📂.
@@ -14,7 +14,7 @@ This project is a full-stack web application designed to upload CSV files contai
   - Email (formatted as a valid email address) 📧
   - Password (must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be longer than 8 characters) 🔑
 - Save valid data to the database 💾.
-- Automated unit tests for both backend and frontend 🧪.
+- Automated unit tests for the frontend 🧪.
 
 ### Technologies Used 💻
 - **Frontend**: Angular (TypeScript)

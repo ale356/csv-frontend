@@ -1,27 +1,34 @@
-# CsvFrontend
+# CSV Fullstack Applikation 🚀
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+## Project Overview
 
-## Development server
+This project is a full-stack web application designed to upload CSV files containing user data and store them in a PostgreSQL database via a REST API built using .NET (C#). The application was developed with a frontend using Angular (TypeScript) and implements form validation for user fields. Invalid fields are clearly displayed in a table for easy user identification. Additionally, the project includes automated unit tests for both the frontend (using Jasmine) and the backend (using xUnit) to ensure functionality and stability. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Key Features 🛠️
+- Upload CSV files containing user data 📂.
+- Validate and display invalid user fields in a table format 📊.
+- Store valid user data in a PostgreSQL database 🗄️.
+- Implement form validation for the following fields:
+  - Full name (max length: 100 characters) ✍️
+  - Username (max length: 100 characters) 👤
+  - Email (formatted as a valid email address) 📧
+  - Password (must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be longer than 8 characters) 🔑
+- Save valid data to the database 💾.
+- Automated unit tests for both backend and frontend 🧪.
 
-## Code scaffolding
+### Technologies Used 💻
+- **Frontend**: Angular (TypeScript)
+- **Backend**: .NET (C#) with xUnit for testing
+- **Database**: PostgreSQL with Entity Framework Core (EF Core)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Testing 🧑‍🔬
 
-## Build
+- **Frontend tests**: Jasmine is used for automated frontend tests. Run them with:
+  ```
+  ng test
+  ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Backend tests**: xUnit is used for backend tests. Run them with:
+  ```
+  dotnet test
+  ```
